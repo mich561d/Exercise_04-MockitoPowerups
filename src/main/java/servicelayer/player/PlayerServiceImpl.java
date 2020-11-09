@@ -5,7 +5,7 @@ import datalayer.player.PlayerStorageException;
 import dto.Player;
 
 import java.sql.Date;
-import java.util.Collection;
+import java.util.List;
 
 public class PlayerServiceImpl implements PlayerService {
 
@@ -36,6 +36,7 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public void updatePlayer(Player player) throws PlayerServiceException {
         try {
+            player.setLastPlayed(new Date(System.currentTimeMillis()));
             playerStorage.updatePlayer(player);
         } catch (PlayerStorageException ex) {
             throw new PlayerServiceException(ex.getMessage());
@@ -43,7 +44,7 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public Collection<Player> getPlayers() throws PlayerServiceException {
+    public List<Player> getPlayers() throws PlayerServiceException {
         try {
             return playerStorage.getPlayers();
         } catch (PlayerStorageException ex) {

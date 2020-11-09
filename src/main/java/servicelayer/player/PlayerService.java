@@ -2,7 +2,7 @@ package servicelayer.player;
 
 import dto.Player;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface PlayerService {
     int createPlayer(String name) throws PlayerServiceException;
@@ -11,5 +11,5 @@ public interface PlayerService {
 
     void updatePlayer(Player player) throws PlayerServiceException;
 
-    Collection<Player> getPlayers() throws PlayerServiceException;
+    List<Player> getPlayers() throws PlayerServiceException;
 }
