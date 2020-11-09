@@ -33,7 +33,7 @@ class CreatePlayerTest {
                 .defaultSchema(db)
                 .createSchemas(true)
                 .schemas(db)
-                .target("2")
+                .target("1")
                 .dataSource(url, user, password));
 
         flyway.migrate();

@@ -10,12 +10,11 @@ import servicelayer.player.PlayerService;
 import servicelayer.player.PlayerServiceException;
 import servicelayer.player.PlayerServiceImpl;
 
-import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("unit")
-public class CreatePlayerTest {
+public class GetPlayersTest {
 
     private PlayerService playerService;
     private PlayerStorage storageMock;
@@ -27,16 +26,12 @@ public class CreatePlayerTest {
     }
 
     @Test
-    public void mustCallStorageWhenCreatingCustomer() throws PlayerServiceException, PlayerStorageException {
+    public void mustCallStorageWhenRetrievingACustomer() throws PlayerServiceException, PlayerStorageException {
         // Arrange
-        var name = "Jixter";
         // Act
-        playerService.createPlayer(name);
+        playerService.getPlayers();
         // Assert
         verify(storageMock, times(1))
-                .createPlayer(
-                        argThat(x -> x.getName().equals(name) &&
-                                x.getWins() == 0 &&
-                                x.getLoses() == 0));
+                .getPlayers();
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 public interface PlayerStorage {
     int createPlayer(Player player) throws PlayerStorageException;
 
-    Player getPlayerWithId(int playerId) throws PlayerStorageException;
+    Player getPlayerById(int playerId) throws PlayerStorageException;
 
     void updatePlayer(Player player) throws PlayerStorageException;
 

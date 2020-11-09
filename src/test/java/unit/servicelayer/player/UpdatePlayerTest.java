@@ -2,6 +2,7 @@ package unit.servicelayer.player;
 
 import datalayer.player.PlayerStorage;
 import datalayer.player.PlayerStorageException;
+import dto.Player;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -10,12 +11,13 @@ import servicelayer.player.PlayerService;
 import servicelayer.player.PlayerServiceException;
 import servicelayer.player.PlayerServiceImpl;
 
-import static org.mockito.ArgumentMatchers.argThat;
+import java.sql.Date;
+
 import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("unit")
-public class CreatePlayerTest {
+public class UpdatePlayerTest {
 
     private PlayerService playerService;
     private PlayerStorage storageMock;
@@ -27,16 +29,13 @@ public class CreatePlayerTest {
     }
 
     @Test
-    public void mustCallStorageWhenCreatingCustomer() throws PlayerServiceException, PlayerStorageException {
+    public void mustCallStorageWhenRetrievingACustomer() throws PlayerServiceException, PlayerStorageException {
         // Arrange
-        var name = "Jixter";
+        Player player = new Player(1, "Jez-Raptor", 1, 0, new Date(System.currentTimeMillis()));
         // Act
-        playerService.createPlayer(name);
+        playerService.updatePlayer(player);
         // Assert
         verify(storageMock, times(1))
-                .createPlayer(
-                        argThat(x -> x.getName().equals(name) &&
-                                x.getWins() == 0 &&
-                                x.getLoses() == 0));
+                .updatePlayer(player);
     }
 }

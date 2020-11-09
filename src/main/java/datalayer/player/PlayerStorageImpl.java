@@ -45,7 +45,7 @@ public class PlayerStorageImpl implements PlayerStorage {
     }
 
     @Override
-    public Player getPlayerWithId(int playerId) throws PlayerStorageException {
+    public Player getPlayerById(int playerId) throws PlayerStorageException {
         var sql = "select id, name, wins, loses, lastPlayed from Player where id = ?";
         try (var con = getConnection();
              var stmt = con.prepareStatement(sql)) {

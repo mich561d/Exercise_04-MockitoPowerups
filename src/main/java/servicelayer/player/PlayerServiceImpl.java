@@ -27,7 +27,16 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public Player getPlayerById(int id) throws PlayerServiceException {
         try {
-            return playerStorage.getPlayerWithId(id);
+            return playerStorage.getPlayerById(id);
+        } catch (PlayerStorageException ex) {
+            throw new PlayerServiceException(ex.getMessage());
+        }
+    }
+
+    @Override
+    public void updatePlayer(Player player) throws PlayerServiceException {
+        try {
+            playerStorage.updatePlayer(player);
         } catch (PlayerStorageException ex) {
             throw new PlayerServiceException(ex.getMessage());
         }
