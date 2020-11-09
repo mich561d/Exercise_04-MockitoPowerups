@@ -31,7 +31,7 @@ public class UpdatePlayerTest {
     @Test
     public void mustCallStorageWhenRetrievingACustomer() throws PlayerServiceException, PlayerStorageException {
         // Arrange
-        Player player = new Player(1, "Jez-Raptor", 1, 0, new Date(System.currentTimeMillis()));
+        Player player = new Player(1, "Test-Player", 1, 0, new Date(System.currentTimeMillis()));
         // Act
         playerService.updatePlayer(player);
         // Assert

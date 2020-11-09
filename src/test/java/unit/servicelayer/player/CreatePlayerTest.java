@@ -29,7 +29,7 @@ public class CreatePlayerTest {
     @Test
     public void mustCallStorageWhenCreatingCustomer() throws PlayerServiceException, PlayerStorageException {
         // Arrange
-        var name = "Jixter";
+        var name = "Test-Player";
         // Act
         playerService.createPlayer(name);
         // Assert

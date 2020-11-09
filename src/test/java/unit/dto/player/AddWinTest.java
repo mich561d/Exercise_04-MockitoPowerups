@@ -4,8 +4,7 @@ import dto.Player;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-
-import java.sql.Date;
+import utils.DatabaseUtils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,7 +15,7 @@ public class AddWinTest {
     @Test
     public void mustAddWinToPlayer() {
         // Arrange
-        Player player = new Player("Nutcracker", 0, 0, new Date(System.currentTimeMillis()));
+        Player player = DatabaseUtils.createFakePlayer();
         var oldWins = player.getWins();
         // Act
         player.addWin();

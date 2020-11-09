@@ -10,7 +10,9 @@ import org.flywaydb.core.api.configuration.FluentConfiguration;
 import java.sql.Date;
 
 public class DatabaseUtils {
-    public static final String URL = "jdbc:mysql://localhost:3306/";
+
+    public static final int PORT = 3306;
+    public static final String URL = "jdbc:mysql://localhost:" + PORT + "/";
     public static final String DB = "tic_tac_toe_test";
     public static final String CON_STR = URL + DB;
     public static final String USER = "dev";
@@ -31,10 +33,16 @@ public class DatabaseUtils {
     }
 
     public static void addFakePlayers(int numPlayers, PlayerStorage playerStorage) throws PlayerStorageException {
-        Faker faker = new Faker();
         for (int i = 0; i < numPlayers; i++) {
-            Player p = new Player(faker.name().username(), 0, 0, new Date(System.currentTimeMillis()));
-            playerStorage.createPlayer(p);
+            playerStorage.createPlayer(createFakePlayer());
         }
+    }
+
+    public static Player createFakePlayer() {
+        return new Player(getFakerUsername(), 0, 0, new Date(System.currentTimeMillis()));
+    }
+
+    public static String getFakerUsername() {
+        return new Faker().name().username();
     }
 }

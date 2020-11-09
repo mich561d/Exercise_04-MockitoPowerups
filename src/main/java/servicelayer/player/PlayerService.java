@@ -1,6 +1,5 @@
 package servicelayer.player;
 
-import datalayer.player.PlayerStorageException;
 import dto.Player;
 
 import java.util.Collection;

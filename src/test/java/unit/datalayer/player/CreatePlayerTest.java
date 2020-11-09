@@ -3,14 +3,11 @@ package unit.datalayer.player;
 import datalayer.player.PlayerStorage;
 import datalayer.player.PlayerStorageException;
 import datalayer.player.PlayerStorageImpl;
-import dto.Player;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import utils.DatabaseUtils;
-
-import java.sql.Date;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -29,11 +26,8 @@ public class CreatePlayerTest {
     @Test
     public void mustCreateStandardPlayerWhenCreatingPlayer() throws PlayerStorageException {
         // Arrange
-        var name = "Cipher-X";
-        var lastPlayed = new Date(System.currentTimeMillis());
-        Player p = new Player(name, 0, 0, lastPlayed);
+        var id = playerStorage.createPlayer(DatabaseUtils.createFakePlayer());
         // Act
-        var id = playerStorage.createPlayer(p);
         var player = playerStorage.getPlayerById(id);
         // Assert
         assertNotNull(player);

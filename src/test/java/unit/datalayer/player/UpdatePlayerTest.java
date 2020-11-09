@@ -3,7 +3,6 @@ package unit.datalayer.player;
 import datalayer.player.PlayerStorage;
 import datalayer.player.PlayerStorageException;
 import datalayer.player.PlayerStorageImpl;
-import dto.Player;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -19,18 +18,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class UpdatePlayerTest {
 
     private PlayerStorage playerStorage;
+    private int playerId;
 
     @BeforeAll
-    public void beforeAll() {
+    public void beforeAll() throws PlayerStorageException {
         DatabaseUtils.setupFlyway("1");
         playerStorage = new PlayerStorageImpl(DatabaseUtils.CON_STR, DatabaseUtils.USER, DatabaseUtils.PASSWORD);
+        playerId = playerStorage.createPlayer(DatabaseUtils.createFakePlayer());
     }
 
     @Test
     public void mustUpdatePlayerWithWins() throws PlayerStorageException {
         // Arrange
-        var id = playerStorage.createPlayer(new Player("Le Mouns", 0, 0, new Date(System.currentTimeMillis())));
-        var player = playerStorage.getPlayerById(id);
+        var player = playerStorage.getPlayerById(playerId);
         // Act
         player.addWin();
         playerStorage.updatePlayer(player);
@@ -42,8 +42,7 @@ public class UpdatePlayerTest {
     @Test
     public void mustUpdatePlayerWithLoses() throws PlayerStorageException {
         // Arrange
-        var id = playerStorage.createPlayer(new Player("Ci-ung", 0, 0, new Date(System.currentTimeMillis())));
-        var player = playerStorage.getPlayerById(id);
+        var player = playerStorage.getPlayerById(playerId);
         // Act
         player.addLoses();
         playerStorage.updatePlayer(player);
@@ -55,8 +54,7 @@ public class UpdatePlayerTest {
     @Test
     public void mustUpdatePlayerWithLastPlayed() throws PlayerStorageException {
         // Arrange
-        var id = playerStorage.createPlayer(new Player("Slippers Dippers", 0, 0, new Date(System.currentTimeMillis())));
-        var player = playerStorage.getPlayerById(id);
+        var player = playerStorage.getPlayerById(playerId);
         // Act
         player.setLastPlayed(new Date(System.currentTimeMillis()));
         playerStorage.updatePlayer(player);

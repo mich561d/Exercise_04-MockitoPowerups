@@ -4,6 +4,7 @@ import dto.Player;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import utils.DatabaseUtils;
 
 import java.sql.Date;
 
@@ -16,7 +17,7 @@ public class UpdateLastPlayedTest {
     @Test
     public void mustUpdateLastPlayedToPlayer() {
         // Arrange
-        Player player = new Player("Nutcracker", 0, 0, new Date(System.currentTimeMillis()));
+        Player player = DatabaseUtils.createFakePlayer();
         var newDate = new Date(System.currentTimeMillis());
         // Act
         player.setLastPlayed(newDate);

@@ -10,8 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import utils.DatabaseUtils;
 
-import java.sql.Date;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -28,14 +26,14 @@ public class GetPlayerByIdTest {
     }
 
     @Test
-    public void mustRetrievePlayerWhenCreatingPlayer() throws PlayerStorageException {
+    public void mustRetrievePlayerWithValidId() throws PlayerStorageException {
         // Arrange
-        Player p1 = new Player("JigSaw", 0, 0, new Date(System.currentTimeMillis()));
-        var id = playerStorage.createPlayer(p1);
+        Player p = DatabaseUtils.createFakePlayer();
+        var id = playerStorage.createPlayer(p);
         // Act
-        Player p2 = playerStorage.getPlayerById(id);
+        Player player = playerStorage.getPlayerById(id);
         // Assert
-        assertEquals(p1.getName(), p2.getName());
+        assertEquals(p.getName(), player.getName());
     }
 
     @Test
