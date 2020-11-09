@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MockitoPowerups" target="14" />
+      <module name="MockitoPowerups" target="1.13" />
     </bytecodeTargetLevel>
   </component>
 </project>
