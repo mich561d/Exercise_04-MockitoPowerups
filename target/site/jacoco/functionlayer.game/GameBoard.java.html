@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameBoard.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MockitoPowerups</a> &gt; <a href="index.source.html" class="el_package">functionlayer.game</a> &gt; <span class="el_source">GameBoard.java</span></div><h1>GameBoard.java</h1><pre class="source lang-java linenums">package functionlayer.game;
+
+<span class="fc" id="L3">public class GameBoard {</span>
+    private int[][] board;
+
+    public void createBoard() {
+<span class="fc" id="L7">        board = new int[3][3];</span>
+<span class="fc" id="L8">    }</span>
+
+    public int[][] getBoard() {
+<span class="fc" id="L11">        return board;</span>
+    }
+
+    public boolean makeMove(int player, int xInput, int yInput) {
+<span class="fc" id="L15">        int x = --xInput;</span>
+<span class="fc" id="L16">        int y = --yInput;</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (board[x][y] != 0) return false;</span>
+<span class="fc" id="L18">        board[x][y] = player;</span>
+<span class="fc" id="L19">        return true;</span>
+    }
+
+    public boolean checkForFullBoard() {
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        for (int[] x : board) {</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">            for (int y : x) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">                if (y == 0) return false;</span>
+            }
+        }
+<span class="fc" id="L28">        return true;</span>
+    }
+
+    public boolean checkWin(int player) {
+<span class="fc bfc" id="L32" title="All 4 branches covered.">        return checkStraightsForWin(player) || checkDiagonalsForWin(player);</span>
+    }
+
+    private boolean checkStraightsForWin(int player) {
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for (int i = 0; i &lt; 3; i++) {</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">            if (checkForThreeIdentical(player, board[0][i], board[1][i], board[2][i])) return true;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (checkForThreeIdentical(player, board[i][0], board[i][1], board[i][2])) return true;</span>
+        }
+<span class="fc" id="L40">        return false;</span>
+    }
+
+    private boolean checkDiagonalsForWin(int player) {
+<span class="fc" id="L44">        boolean leftToRight = checkForThreeIdentical(player, board[0][0], board[1][1], board[2][2]);</span>
+<span class="fc" id="L45">        boolean rightToLeft = checkForThreeIdentical(player, board[0][2], board[1][1], board[2][0]);</span>
+<span class="fc bfc" id="L46" title="All 4 branches covered.">        return leftToRight || rightToLeft;</span>
+    }
+
+    private boolean checkForThreeIdentical(int player, int i1, int i2, int i3) {
+<span class="fc bfc" id="L50" title="All 6 branches covered.">        return ((i1 == player) &amp;&amp; (i1 == i2) &amp;&amp; (i2 == i3));</span>
+    }
+
+    public String printBoard() {
+<span class="fc" id="L54">        StringBuilder stringBuilder = new StringBuilder();</span>
+<span class="fc" id="L55">        stringBuilder.append(&quot;-------------\n&quot;);</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        for (int[] x : board) {</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">            for (int y : x) {</span>
+<span class="fc" id="L58">                char c = ' ';</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">                if (y == 2) {</span>
+<span class="fc" id="L60">                    c = 'o';</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">                } else if (y == 1){</span>
+<span class="fc" id="L62">                    c = 'x';</span>
+                }
+<span class="fc" id="L64">                stringBuilder.append(&quot;| &quot;+ c + &quot; &quot;);</span>
+            }
+<span class="fc" id="L66">            stringBuilder.append(&quot;|\n-------------\n&quot;);</span>
+        }
+<span class="fc" id="L68">        return stringBuilder.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

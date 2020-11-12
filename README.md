@@ -31,6 +31,7 @@ Include following:
 - Static analysis (e.g. Findbugs, PMD, CheckStyle). 
 
 #### Coverage report
+run `mvn clean package` to update JaCoCo. Then look at the generated file.
 
 #### Mutations testing
 

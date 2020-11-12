@@ -50,7 +50,7 @@ public class GameBoard {
         return ((i1 == player) && (i1 == i2) && (i2 == i3));
     }
 
-    public void printBoard() {
+    public String printBoard() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("-------------\n");
         for (int[] x : board) {
@@ -65,6 +65,6 @@ public class GameBoard {
             }
             stringBuilder.append("|\n-------------\n");
         }
-        System.out.println(stringBuilder.toString());
+        return stringBuilder.toString();
     }
 }

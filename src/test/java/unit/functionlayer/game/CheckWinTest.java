@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CheckWinTest {
 
     @Test
-    public void threeInARowMustGiveWin() throws InvalidMoveException {
+    public void threeInARowMustGiveWin() {
         // Arrange
         GameBoard gameBoard = new GameBoard();
         // Act
@@ -27,7 +27,7 @@ public class CheckWinTest {
     }
 
     @Test
-    public void threeInAColumnMustGiveWin() throws InvalidMoveException {
+    public void threeInAColumnMustGiveWin() {
         // Arrange
         GameBoard gameBoard = new GameBoard();
         // Act
@@ -40,7 +40,7 @@ public class CheckWinTest {
     }
 
     @Test
-    public void threeDiagonalMustGiveWin() throws InvalidMoveException {
+    public void threeDiagonalLeftToRightMustGiveWin() {
         // Arrange
         GameBoard gameBoard = new GameBoard();
         // Act
@@ -53,7 +53,20 @@ public class CheckWinTest {
     }
 
     @Test
-    public void mustNotGiveWin() throws InvalidMoveException {
+    public void threeDiagonalRightToLeftMustGiveWin() {
+        // Arrange
+        GameBoard gameBoard = new GameBoard();
+        // Act
+        gameBoard.createBoard();
+        gameBoard.makeMove(1, 1, 3);
+        gameBoard.makeMove(1, 2, 2);
+        gameBoard.makeMove(1, 3, 1);
+        // Assert
+        assertTrue(gameBoard.checkWin(1));
+    }
+
+    @Test
+    public void mustNotGiveWin() {
         // Arrange
         GameBoard gameBoard = new GameBoard();
         // Act
@@ -63,5 +76,38 @@ public class CheckWinTest {
         gameBoard.makeMove(1, 1, 3);
         // Assert
         assertFalse(gameBoard.checkWin(2));
+    }
+
+    @Test
+    public void noWinConditionMustNotGiveWin() {
+        // Arrange
+        GameBoard gameBoard = new GameBoard();
+        // Act
+        gameBoard.createBoard();
+        // Assert
+        assertFalse(gameBoard.checkWin(1));
+    }
+
+    @Test
+    public void OnePinMustNotGiveWin() {
+        // Arrange
+        GameBoard gameBoard = new GameBoard();
+        // Act
+        gameBoard.createBoard();
+        gameBoard.makeMove(1, 1, 1);
+        // Assert
+        assertFalse(gameBoard.checkWin(1));
+    }
+
+    @Test
+    public void TwoPinMustNotGiveWin() {
+        // Arrange
+        GameBoard gameBoard = new GameBoard();
+        // Act
+        gameBoard.createBoard();
+        gameBoard.makeMove(1, 1, 1);
+        gameBoard.makeMove(1, 1, 2);
+        // Assert
+        assertFalse(gameBoard.checkWin(1));
     }
 }

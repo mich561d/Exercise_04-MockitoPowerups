@@ -5,5 +5,7 @@ C:\Users\mich5\Desktop\Skole\Softwareudvikling\TST - Test\Projects\Exercises\Exe
 C:\Users\mich5\Desktop\Skole\Softwareudvikling\TST - Test\Projects\Exercises\Exercise_04-MockitoPowerups\src\main\java\servicelayer\player\PlayerServiceImpl.java
 C:\Users\mich5\Desktop\Skole\Softwareudvikling\TST - Test\Projects\Exercises\Exercise_04-MockitoPowerups\src\main\java\datalayer\player\PlayerStorage.java
 C:\Users\mich5\Desktop\Skole\Softwareudvikling\TST - Test\Projects\Exercises\Exercise_04-MockitoPowerups\src\main\java\datalayer\player\PlayerStorageImpl.java
+C:\Users\mich5\Desktop\Skole\Softwareudvikling\TST - Test\Projects\Exercises\Exercise_04-MockitoPowerups\src\main\java\functionlayer\game\GameBoard.java
 C:\Users\mich5\Desktop\Skole\Softwareudvikling\TST - Test\Projects\Exercises\Exercise_04-MockitoPowerups\src\main\java\servicelayer\player\PlayerServiceException.java
+C:\Users\mich5\Desktop\Skole\Softwareudvikling\TST - Test\Projects\Exercises\Exercise_04-MockitoPowerups\src\main\java\functionlayer\game\InvalidMoveException.java
 C:\Users\mich5\Desktop\Skole\Softwareudvikling\TST - Test\Projects\Exercises\Exercise_04-MockitoPowerups\src\main\java\datalayer\player\PlayerStorageException.java

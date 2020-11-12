@@ -1,0 +1,11 @@
+servicelayer\player\PlayerService.class
+servicelayer\player\PlayerServiceException.class
+datalayer\player\PlayerStorage.class
+main\GameStarter.class
+datalayer\player\PlayerStorageException.class
+functionlayer\game\GameBoard.class
+main\DataSetup.class
+datalayer\player\PlayerStorageImpl.class
+dto\Player.class
+functionlayer\game\InvalidMoveException.class
+servicelayer\player\PlayerServiceImpl.class

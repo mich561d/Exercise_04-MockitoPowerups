@@ -6,15 +6,14 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("unit")
 public class MakeMoveTest {
 
     @Test
-    public void mustChangeBoardWhenDoingAValidMove() throws InvalidMoveException {
+    public void mustChangeBoardWhenDoingAValidMove() {
         // Arrange
         GameBoard gameBoard = new GameBoard();
         gameBoard.createBoard();
@@ -31,12 +30,11 @@ public class MakeMoveTest {
         // Arrange
         GameBoard gameBoard = new GameBoard();
         gameBoard.createBoard();
+        // Act
+        gameBoard.makeMove(1, 1, 1);
+        boolean result = gameBoard.makeMove(1, 1, 1);
         // Assert
-        assertThrows(InvalidMoveException.class, () -> {
-            // Act
-            gameBoard.makeMove(1, 1, 1);
-            gameBoard.makeMove(1, 1, 1);
-        });
+        assertFalse(result);
     }
 
     @Test
@@ -44,11 +42,10 @@ public class MakeMoveTest {
         // Arrange
         GameBoard gameBoard = new GameBoard();
         gameBoard.createBoard();
+        // Act
+        gameBoard.makeMove(1, 1, 1);
+        boolean result = gameBoard.makeMove(2, 1, 1);
         // Assert
-        assertThrows(InvalidMoveException.class, () -> {
-            // Act
-            gameBoard.makeMove(1, 1, 1);
-            gameBoard.makeMove(2, 1, 1);
-        });
+        assertFalse(result);
     }
 }

@@ -65,7 +65,7 @@ public class GameStarter {
 
         while (activeGame) {
             Thread.sleep(2000);
-            gameBoard.printBoard();
+            System.out.println(gameBoard.printBoard());
 
             if (playerTurn) {
                 System.out.println("\nYour turn!");

@@ -1,1 +1,8 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+MockitoPowerups,datalayer.player,PlayerStorageException,0,4,0,0,0,2,0,1,0,1
+MockitoPowerups,datalayer.player,PlayerStorageImpl,42,207,0,4,12,53,0,8,0,6
+MockitoPowerups,servicelayer.player,PlayerServiceException,0,4,0,0,0,2,0,1,0,1
+MockitoPowerups,servicelayer.player,PlayerServiceImpl,28,48,0,2,8,12,0,6,0,5
+MockitoPowerups,functionlayer.game,InvalidMoveException,4,0,0,0,2,0,1,0,1,0
+MockitoPowerups,functionlayer.game,GameBoard,0,275,0,36,0,34,0,28,0,10
+MockitoPowerups,dto,Player,4,66,0,0,2,24,1,10,1,10
