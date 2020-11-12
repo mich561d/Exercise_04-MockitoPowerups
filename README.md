@@ -36,5 +36,9 @@ run `mvn clean package` to update JaCoCo. Then look at [the generated files](htt
 ![JaCoCo report](https://github.com/mich561d/Exercise_04-MockitoPowerups/blob/main/images/JaCoCo.PNG "JaCoCo report")
 
 #### Mutations testing
+run `pitest:mutationCoverage` and `pitest:report` to update PITest. Then look at [the generated files](https://github.com/mich561d/Exercise_04-MockitoPowerups/tree/main/target/pit-reports/202011121329).
+
+![PITest report](https://github.com/mich561d/Exercise_04-MockitoPowerups/blob/main/images/PITest.PNG "PITest report")
+
 
 #### Static analysis
