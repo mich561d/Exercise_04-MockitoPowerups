@@ -40,5 +40,7 @@ run `pitest:mutationCoverage` and `pitest:report` to update PITest. Then look at
 
 ![PITest report](https://github.com/mich561d/Exercise_04-MockitoPowerups/blob/main/images/PITest.PNG "PITest report")
 
-
 #### Static analysis
+run `spotbugs:spotbugs` and `spotbugs:gui` to show any bugs in code via spotbugs GUI.
+
+![Spotbugs GUI](https://github.com/mich561d/Exercise_04-MockitoPowerups/blob/main/images/Spotbugs.PNG "Spotbugs GUI")
