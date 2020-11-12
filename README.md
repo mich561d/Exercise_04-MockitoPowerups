@@ -17,7 +17,7 @@ You can verify that a mock has been called a specified amount of times by using 
 You can verify that a mock has been called with specific arguments by using Mockito's `ArguementMatcher` - Which can be seen in this [example](https://github.com/mich561d/Exercise_04-MockitoPowerups/blob/63249ddd3d6d756fd92f253b370a8dd0e728b521/src/test/java/unit/servicelayer/player/CreatePlayerTest.java#L55). You specify exactly what argument or arguments that to expect the method uses.
 
 #### How do you use a predicate to verify the properties of the arguments given to a call to the mock?
-
+You can verify the properties of the argument by using Mockito's `argThat()` method - Which can be seen in this [example](https://github.com/mich561d/Exercise_04-MockitoPowerups/blob/63249ddd3d6d756fd92f253b370a8dd0e728b521/src/test/java/unit/servicelayer/player/CreatePlayerTest.java#L55). You specify a lambda expression that checks the properties.
 
 # Exercise_04-C_Tic_Tac_Toe
 By Michael Due
