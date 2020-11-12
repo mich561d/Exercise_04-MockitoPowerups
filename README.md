@@ -31,7 +31,7 @@ Include following:
 - Static analysis (e.g. Findbugs, PMD, CheckStyle). 
 
 #### Coverage report
-run `mvn clean package` to update JaCoCo. Then look at the generated file.
+run `mvn clean package` to update JaCoCo. Then look at [the generated files](https://github.com/mich561d/Exercise_04-MockitoPowerups/tree/main/target/site/jacoco).
 
 #### Mutations testing
 
