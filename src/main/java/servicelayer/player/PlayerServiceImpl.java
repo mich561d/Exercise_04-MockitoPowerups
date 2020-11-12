@@ -18,6 +18,9 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public int createPlayer(String name) throws PlayerServiceException {
         try {
+            if (name == null) {
+                throw new PlayerServiceException("Name is invalid!");
+            }
             return playerStorage.createPlayer(new Player(name, 0, 0, new Date(System.currentTimeMillis())));
         } catch (PlayerStorageException ex) {
             throw new PlayerServiceException(ex.getMessage());

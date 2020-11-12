@@ -26,7 +26,8 @@ public class GameStarter {
         System.out.println("\nRules:");
         System.out.println("3 in a row = wins (both vertical, horizontal and diagonal)");
 
-        System.out.println("\nTop 10 - Highscores:");
+        int maxNumOfTopPlayers = 10;
+        System.out.println("\nTop " + maxNumOfTopPlayers + " - Highscores:");
         List<Player> players = playerService.getPlayers();
         players.sort((o1, o2) -> {
             int equalWins = o2.getWins() - o1.getWins();
@@ -35,7 +36,7 @@ public class GameStarter {
             }
             return equalWins;
         });
-        int numOfPlayers = Math.min(players.size(), 10);
+        int numOfPlayers = Math.min(players.size(), maxNumOfTopPlayers);
         for (int i = 0; i < numOfPlayers; i++) {
             Player player = players.get(i);
             System.out.format("%d. | %45s | %d | %d | %tD%n", (i + 1), player.getName(), player.getWins(), player.getLoses(), player.getLastPlayed());
