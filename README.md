@@ -33,6 +33,8 @@ Include following:
 #### Coverage report
 run `mvn clean package` to update JaCoCo. Then look at [the generated files](https://github.com/mich561d/Exercise_04-MockitoPowerups/tree/main/target/site/jacoco).
 
+![JaCoCo report](https://github.com/mich561d/Exercise_04-MockitoPowerups/images/JaCoCo.PNG "JaCoCo report")
+
 #### Mutations testing
 
 #### Static analysis
