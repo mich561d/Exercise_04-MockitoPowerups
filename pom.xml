@@ -65,6 +65,23 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.5.2</version>
+                <configuration>
+                    <targetClasses>
+                        <param>datalayer*</param>
+                        <param>functionlayer*</param>
+                        <param>servicelayer*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>datalayer*</param>
+                        <param>functionlayer*</param>
+                        <param>servicelayer*</param>
+                    </targetTests>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <dependencyManagement>
