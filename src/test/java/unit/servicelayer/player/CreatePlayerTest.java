@@ -51,7 +51,7 @@ public class CreatePlayerTest {
             // Act
             playerService.createPlayer(name);
         });
-        verify(storageMock, times(0))
+        verify(storageMock, never())
                 .createPlayer(argThat(x -> x.getName().equals(name)));
     }
 }
